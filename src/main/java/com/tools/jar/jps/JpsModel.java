@@ -1,6 +1,7 @@
-package com.tools.jar.models;
+package com.tools.jar.jps;
 
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * 模拟Jps命令获取JVM内存数据的数据模型
@@ -27,12 +28,12 @@ public class JpsModel {
     /**
      * 应用启动参数列表
      */
-    private String[] args;
+    private String args;
 
     /**
      * JVM 启动参数列表
      */
-    private String[] jvmArgs;
+    private String jvmArgs;
 
     /**
      * 输出通过flag文件传递到JVM中的参数(.hotspotrc文件或-XX:Flags=所指定的文件
@@ -61,7 +62,7 @@ public class JpsModel {
     /**
      * 监控数据采集时间
      */
-    private String captureTime;
+    private Date captureTime;
 
     public Integer getLvmid() {
         return lvmid;
@@ -87,19 +88,19 @@ public class JpsModel {
         this.jarFilename = jarFilename;
     }
 
-    public String[] getArgs() {
+    public String getArgs() {
         return args;
     }
 
-    public void setArgs(String[] args) {
+    public void setArgs(String args) {
         this.args = args;
     }
 
-    public String[] getJvmArgs() {
+    public String getJvmArgs() {
         return jvmArgs;
     }
 
-    public void setJvmArgs(String[] jvmArgs) {
+    public void setJvmArgs(String jvmArgs) {
         this.jvmArgs = jvmArgs;
     }
 
@@ -111,11 +112,11 @@ public class JpsModel {
         this.jvmFlags = jvmFlags;
     }
 
-    public String getCaptureTime() {
+    public Date getCaptureTime() {
         return captureTime;
     }
 
-    public void setCaptureTime(String captureTime) {
+    public void setCaptureTime(Date captureTime) {
         this.captureTime = captureTime;
     }
 
@@ -141,8 +142,8 @@ public class JpsModel {
                 "lvmid=" + lvmid +
                 ", mainClassname='" + mainClassname + '\'' +
                 ", jarFilename='" + jarFilename + '\'' +
-                ", args=" + Arrays.toString(args) +
-                ", jvmArgs=" + Arrays.toString(jvmArgs) +
+                ", args='" + args + '\'' +
+                ", jvmArgs='" + jvmArgs + '\'' +
                 ", jvmFlags='" + jvmFlags + '\'' +
                 ", errorString='" + errorString + '\'' +
                 ", exceptionString='" + exceptionString + '\'' +

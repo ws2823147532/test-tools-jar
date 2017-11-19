@@ -1,4 +1,4 @@
-package com.tools.jar.models;
+package com.tools.jar.jps;
 
 import com.google.common.collect.Lists;
 import sun.jvmstat.monitor.HostIdentifier;
@@ -10,6 +10,7 @@ import sun.jvmstat.monitor.VmIdentifier;
 import sun.tools.jps.Arguments;
 
 import java.net.URISyntaxException;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -79,14 +80,14 @@ public class JpsUtil {
                         errorString = " -- main args information unavailable";
                         String mainArgs = MonitoredVmUtil.mainArgs(vm);
                         if (mainArgs != null && mainArgs.length() > 0) {
-                            jpsModel.setArgs(new String[]{mainArgs});
+                            jpsModel.setArgs(mainArgs);
                         }
                     }
                     if (arguments.showVmArgs()) {
                         errorString = " -- jvm args information unavailable";
                         String jvmArgs = MonitoredVmUtil.jvmArgs(vm);
                         if (jvmArgs != null && jvmArgs.length() > 0) {
-                            jpsModel.setJvmArgs(new String[]{jvmArgs});
+                            jpsModel.setJvmArgs(jvmArgs);
                         }
                     }
                     if (arguments.showVmFlags()) {
@@ -108,6 +109,7 @@ public class JpsUtil {
                 } catch (Exception e) {
                     lastError = e;
                 } finally {
+                    jpsModel.setCaptureTime(new Date());
                     if (errorString != null) {
                         /*
                          * we ignore most exceptions, as there are race

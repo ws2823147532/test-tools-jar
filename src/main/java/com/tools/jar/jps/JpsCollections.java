@@ -1,4 +1,4 @@
-package com.tools.jar.models;
+package com.tools.jar.jps;
 
 import java.util.List;
 
