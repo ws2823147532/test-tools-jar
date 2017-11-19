@@ -1,13 +1,9 @@
 package com.tools.jar.jstat;
 
-import java.util.*;
-import java.io.*;
-
-import sun.jvmstat.monitor.*;
-import sun.jvmstat.monitor.event.*;
+import sun.jvmstat.monitor.MonitorException;
 import sun.tools.jstat.OutputFormatter;
 
-import java.util.regex.PatternSyntaxException;
+import java.util.Map;
 
 /**
  * Class to sample and output various jvmstat statistics for a target Java
