@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 测试PermGen OOM
+ * jdk1.6  PermGen OOM
+ * jdk1.7  PermGen OOM
+ * jdk1.8  MetaSpace OOM
+ *
  * @author Administrator
  */
 public class PermGenOomMock {
