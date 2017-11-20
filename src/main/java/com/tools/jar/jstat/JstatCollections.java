@@ -1,15 +1,14 @@
-package com.tools.jar.jps;
+package com.tools.jar.jstat;
 
 import com.tools.jar.MonitorStatus;
 
 import java.util.List;
+import java.util.Map;
 
 /**
- * Jps 收集的监控数据结果集
- *
  * @author wangshang
  */
-public class JpsCollections {
+public class JstatCollections {
 
     /**
      * 监控的状态码
@@ -19,14 +18,23 @@ public class JpsCollections {
     private Integer code = MonitorStatus.SUCCESS.getValue();
 
     /**
-     * jps 监控数据实体
+     * jstat 监控结果集
      */
-    private List<JpsModel> jpsModels;
+    private List<Map<String, String>> jstatModels;
 
     /**
      * 监控异常
      */
     private String monitorException;
+
+    @Override
+    public String toString() {
+        return "JstatCollections{" +
+                "code=" + code +
+                ", jstatModels=" + jstatModels +
+                ", monitorException='" + monitorException + '\'' +
+                '}';
+    }
 
     public Integer getCode() {
         return code;
@@ -36,12 +44,12 @@ public class JpsCollections {
         this.code = code;
     }
 
-    public List<JpsModel> getJpsModels() {
-        return jpsModels;
+    public List<Map<String, String>> getJstatModels() {
+        return jstatModels;
     }
 
-    public void setJpsModels(List<JpsModel> jpsModels) {
-        this.jpsModels = jpsModels;
+    public void setJstatModels(List<Map<String, String>> jstatModels) {
+        this.jstatModels = jstatModels;
     }
 
     public String getMonitorException() {
@@ -52,12 +60,4 @@ public class JpsCollections {
         this.monitorException = monitorException;
     }
 
-    @Override
-    public String toString() {
-        return "JpsCollections{" +
-                "code=" + code +
-                ", jpsModels=" + jpsModels +
-                ", monitorException='" + monitorException + '\'' +
-                '}';
-    }
 }

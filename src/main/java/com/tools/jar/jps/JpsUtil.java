@@ -1,6 +1,7 @@
 package com.tools.jar.jps;
 
 import com.google.common.collect.Lists;
+import com.tools.jar.MonitorStatus;
 import sun.jvmstat.monitor.HostIdentifier;
 import sun.jvmstat.monitor.MonitorException;
 import sun.jvmstat.monitor.MonitoredHost;
@@ -10,6 +11,7 @@ import sun.jvmstat.monitor.VmIdentifier;
 import sun.tools.jps.Arguments;
 
 import java.net.URISyntaxException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -109,7 +111,9 @@ public class JpsUtil {
                 } catch (Exception e) {
                     lastError = e;
                 } finally {
-                    jpsModel.setCaptureTime(new Date());
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:sss");
+
+                    jpsModel.setCaptureTime(simpleDateFormat.format(new Date()));
                     if (errorString != null) {
                         /*
                          * we ignore most exceptions, as there are race
@@ -133,6 +137,7 @@ public class JpsUtil {
                 jpsModels.add(jpsModel);
             }
         } catch (MonitorException e) {
+            jpsCollections.setCode(MonitorStatus.FAILED.getValue());
             if (e.getMessage() != null) {
                 System.err.println(e.getMessage());
                 jpsCollections.setMonitorException(e.getMessage());

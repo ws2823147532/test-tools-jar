@@ -61,7 +61,7 @@ public class JpsModel {
     /**
      * 监控数据采集时间
      */
-    private Date captureTime;
+    private String captureTime;
 
     public Integer getLvmid() {
         return lvmid;
@@ -111,11 +111,11 @@ public class JpsModel {
         this.jvmFlags = jvmFlags;
     }
 
-    public Date getCaptureTime() {
+    public String getCaptureTime() {
         return captureTime;
     }
 
-    public void setCaptureTime(Date captureTime) {
+    public void setCaptureTime(String captureTime) {
         this.captureTime = captureTime;
     }
 
